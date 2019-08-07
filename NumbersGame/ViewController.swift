@@ -47,21 +47,21 @@ class ViewController: UIViewController, UITextFieldDelegate,UITextViewDelegate {
             // 1〜100までの数字か確認する
             if 0 < writtenText && writtenText < 101 {
                 
-                if writtenText > ansNum {
+                if writtenText > ansNum {      // もし入れた値がランダムの値より大きいとき
                     // 回数を1増やす
                     counts += 1
                     showAlert(message: "答えは\(writtenText)より小さい値です。")
                     numberLabel.text = "\(writtenText)"
                     resultTextView.text += "[\(counts)回目]答えは\(writtenText)より小さい値です。\n"
                 }
-                else if writtenText < ansNum {
+                else if writtenText < ansNum {    // もし入れた値がランダムの値より小さい時
                     // 回数を1増やす
                     counts += 1
                     showAlert(message: "答えは\(writtenText)より大きい値です。")
                     numberLabel.text = "\(writtenText)"
                     resultTextView.text += "[\(counts)回目]答えは\(writtenText)より大きい値です。\n"
                 }
-                else {
+                else {               // 入れた値がランダムと同じ時
                     // 回数を1増やす
                     counts += 1
                     showAlert(message: "\(counts)回目で正解しました。\n 数字をリセットします。")
@@ -71,11 +71,11 @@ class ViewController: UIViewController, UITextFieldDelegate,UITextViewDelegate {
                     counts = 0
                 }
             }
-            else {
+            else {                     // 入れられた値が1〜100以外のとき
                 showAlert(message: "エラー \n 「1〜100」までの数字を入力してください。")
             }
         }
-            else {
+            else {                       // 入れられた値が数字じゃないとき
                 showAlert(message: "エラー \n 「1〜100」までの数字を入力してください。")
             }
         }
